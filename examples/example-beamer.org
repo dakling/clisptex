@@ -1,0 +1,30 @@
+#+STARTUP: beamer
+#+LATEX_CLASS_OPTIONS: [10pt]
+#+LATEX_HEADER: \beamertemplatenavigationsymbolsempty{}
+#+OPTIONS: toc:nil
+#+Title: Example for a beamer presentation
+#+Author: Dario Klingenberg
+
+* Just a normal slide
+This is just a normal slide with some text
+* A slide with formulas
+  This slide is more interesting, because it contains lisp-generated latex!
+#+BEGIN_SRC lisp :exports results :results latex
+  (ql:quickload :clisptex)
+  (in-package :clisptex)
+  (tex-eval
+   '(tex-eq-pause
+     (list
+      (group 
+       y
+       +
+       (dd y x)
+       +
+       (dd y x 2)
+       =0
+       )
+      (group
+       y (wrap-parens 0) = 0)
+      (group
+       (dd y x) (wrap-parens 0) = 1))))
+#+END_SRC
