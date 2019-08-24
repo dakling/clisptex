@@ -1,48 +1,30 @@
-* hint
-  Until I figure out the details of how github renders this file, be
-  sure to view the raw README.org file for the code blocks to be
-  visible.
-
 * description
   This is a collection of common lisp functions intended to create
-  latex code. Programming in latex can be cumbersome, so I decided to
+  latex code. This collection is work in progress. While I am not confident that 
+anyone but myself can be productive using this library, I enjoy using it
+and therefore decided to publish it. If nothing else, it might provide some 
+ideas and inspiration to others.
+This work can be intesting for you if
+- you write a lot of complicated latex
+- you use many semantic macros
+- programming in latex feels not as nice as programming lisp
+  
+* motivation
+Programming in latex can be cumbersome, so I decided to
   have my latex code written for me by lisp. This allows creating very
   powerful abstractions leading to concise and semantic source code.
-  This collection is work in progress.
 
-* examples
-  To prevent having to quote and concat all the time, the function
-  tex-eval-list was introduced. Example usage:
-  #+BEGIN_SRC lisp :exports results :results latex
-   (load-file "path-to-file")
-   (tex-eval-list '((tex-eq 1+1=2) (tex-cmd ref eq1)))
-  #+END_SRC
+* getting started
+  clone this repository and read the examples in the example folder. 
+  They intend to demonstrate how this library can be used and integrated into 
+  your workflow.
 
 * integration into workflow
+There are at least three possible ways to use this:
+** generate entire file using lisp
+** generate small files using lisp and input them into your main document
+** using emacs org-mode
   Personally, I use emacs org mode, which allows exporting to latex.
   Moreover, it allows evaluating source code and exporting the
   results. These functions allow a very nice integration of normal
   text with lisp-generated latex text.
-
-** usage example with emacs org mode
-   Just write text as you would normally. If you would like to include
-   e.g. a complicated equation you do not want to write yourself,
-   include the following code block:
-   #+BEGIN_SRC lisp :exports results :results latex
-   (load-file "path-to-file")
-   (tex-eval-list
-    '(tex-eq-pause
-      (list
-       (group
-	(dd (um i) t)
-	+
-	(pd (pm) (x i))
-	- (tex-cmd nu) (pd (um i) (x j) 2)
-	+ (pd (uf i j) (x j))
-	&= 0)
-       (group
-	(pd (um i) (x i))
-	&= 0))))
-   #+END_SRC
-   When you export the document to latex, the lisp is evaluated and
-   the results but directly into the latex file.

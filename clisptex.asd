@@ -7,4 +7,8 @@
   :version "0.0.1"
   :serial t
   :components ((:file "package")
-               (:file "clisptex")))
+               (:file "clisptex")
+               (:file "base")
+               (:file "standard-library")
+               (:file "math")
+               (:file "beamer")))
