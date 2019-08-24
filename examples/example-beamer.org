@@ -3,7 +3,7 @@
 #+LATEX_HEADER: \beamertemplatenavigationsymbolsempty{}
 #+OPTIONS: toc:nil
 #+Title: Example for a beamer presentation
-#+Author: Dario Klingenberg
+#+Author: dakling
 
 * Just a normal slide
 This is just a normal slide with some text
