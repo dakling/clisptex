@@ -32,17 +32,6 @@
   (if arg1 "arg1"
       "no arg1"))
 
-(test-fn nil "2")
-
-(tex-eval-list '(test-fn nil "2"))
-
-(frac 'a 'b)
-
-(tex-eval-list '(frac b (frac a f)))
-
-(tex-eval
-'(tex-eq-pause (group (uf 1 2) = - (square (wrap-parens (mixing-length) (pd (um 1) (x 2)))))))
-
 (defun tex-expand (content-list)
     (when content-list (cons (tex-eval (car content-list)) (tex-expand (cdr content-list)))))
 
