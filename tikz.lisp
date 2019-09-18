@@ -35,7 +35,7 @@
 (defun draw-node (node)
   (concatenate 'string
                (tex-cmd 'node nil (cons
-                                   (concatenate 'string "text width=" (write-to-string (node-width node)))
+                                   (concatenate 'string "text width=" (node-width node))
                                    (let ((options (node-option-list node)))
                                      (when options options))))
                " ("
@@ -56,8 +56,7 @@
   :content "This is a test node"
   :label "test-node"
   :location (make-point :pos-x 1 :pos-y 2)
-  :on-slides nil
-  ))
+  :on-slides 2))
 
 (defun block (content &optional width)
   (make-node ))
